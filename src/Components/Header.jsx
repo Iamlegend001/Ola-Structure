@@ -1,0 +1,160 @@
+import React, { useState, useEffect } from "react";
+import { Menu, X, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Scooter", path: "/scooter" },
+
+  { name: "Battery", path: "/battery" },
+  { name: "Charging", path: "/charging" },
+  { name: "Buy", path: "/buy" },
+];
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const currentPath =
+    typeof window !== "undefined" ? window.location.pathname : "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ${
+        scrolled ? "shadow-lg" : "shadow-sm"
+      }`}
+    >
+      <div className="relative flex h-16 items-center px-4 md:px-6">
+        {/* Logo (left) */}
+        <a href="/" className="flex items-center">
+          <img
+            src="https://cdn.olaelectric.com/ev-discovery-platform/images/ola-logo-13042023.svg"
+            alt="Ola Electric Logo"
+            className="h-10 w-auto bg-black"
+            draggable="false"
+          />
+        </a>
+
+        {/* Centered Nav (desktop only) */}
+        <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-6">
+          {navLinks.slice(0, -1).map((link) => (
+            <Button
+              key={link.name}
+              variant={currentPath === link.path ? "default" : "ghost"}
+              size="sm"
+              asChild
+              className={`relative transition-all duration-200 ${
+                currentPath === link.path
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "hover:bg-accent hover:text-accent-foreground"
+              }`}
+            >
+              <a href={link.path} className="flex items-center space-x-1">
+                <span>{link.name}</span>
+                {currentPath === link.path && (
+                  <div className="absolute -bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 bg-primary rounded-full" />
+                )}
+              </a>
+            </Button>
+          ))}
+        </nav>
+
+        {/* CTA (right) */}
+        <div className="hidden lg:flex items-center ml-auto">
+          <Button
+            asChild
+            size="default"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md hover:shadow-lg transition-all duration-200"
+          >
+            <a href="/buy" className="inline-flex items-center space-x-2">
+              <span>Buy Now</span>
+              <Zap className="w-4 h-4" />
+            </a>
+          </Button>
+        </div>
+
+        {/* Mobile Menu (unchanged) */}
+        <Sheet>
+          <SheetTrigger asChild className="lg:hidden">
+            <Button variant="ghost" size="icon" className="relative">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-80 sm:w-96">
+            <SheetHeader>
+              <SheetTitle className="flex items-center space-x-2">
+                <img
+                  src="https://cdn.olaelectric.com/ev-discovery-platform/images/ola-logo-13042023.svg"
+                  alt="Ola Electric Logo"
+                  className="h-8 w-auto"
+                  draggable="false"
+                />
+              </SheetTitle>
+            </SheetHeader>
+
+            <div className="flex flex-col space-y-4 mt-8">
+              {navLinks.slice(0, -1).map((link, index) => (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  className={`flex items-center space-x-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                    currentPath === link.path
+                      ? "bg-accent text-accent-foreground"
+                      : ""
+                  }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <span>{link.name}</span>
+                  {currentPath === link.path && (
+                    <Badge variant="default" className="ml-auto text-xs">
+                      Current
+                    </Badge>
+                  )}
+                </a>
+              ))}
+
+              <div className="pt-4 mt-4 border-t">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  <a
+                    href="/buy"
+                    className="inline-flex items-center justify-center space-x-2"
+                  >
+                    <span>Buy Now</span>
+                    <Zap className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+
+              <div className="pt-6 mt-6 border-t text-center">
+                <p className="text-sm text-muted-foreground">
+                  Experience the future of mobility
+                </p>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
