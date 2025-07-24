@@ -14,6 +14,9 @@ import Legal from "../pages/Legal";
 import Press from "../pages/Press";
 import Scooter from "../pages/Scooter";
 import Sustainability from "../pages/Sustainability";
+import Motorcycles from "../pages/Motorcycles";
+import ScooterDetails from "../pages/ScooterDetails";
+import MotorCycleDetails from "../pages/MotorCycleDetails";
 
 const MainRoutes = () => {
   return (
@@ -29,6 +32,9 @@ const MainRoutes = () => {
         <Route path="legal" element={<Legal />} />
         <Route path="press" element={<Press />} />
         <Route path="scooter" element={<Scooter />} />
+        <Route path="scooter/:id" element={<ScooterDetails />} />
+        <Route path="motorcycles" element={<Motorcycles />} />
+        <Route path="motorcycles/:id" element={<MotorCycleDetails />} />
         <Route path="sustainability" element={<Sustainability />} />
       </Route>
     </Routes>
