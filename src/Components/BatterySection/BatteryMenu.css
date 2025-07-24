@@ -1,0 +1,41 @@
+.battery-menu {
+  width: 100%;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 16px 0;
+}
+.battery-menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.battery-menu li {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.battery-menu li:hover {
+  background: #e0e7ff;
+  color: #1e40af;
+}
+.battery-menu li.active {
+  background: #1e40af;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .battery-menu ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .battery-menu li {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+}
