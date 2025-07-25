@@ -98,7 +98,7 @@ const ProductHighlights = () => {
                       {scooter.name}
                     </h3>
                     <div className="text-2xl font-medium text-gray-900">
-                      ₹{scooter.price.toLocaleString()}
+                      {scooter.price.toLocaleString()}
                     </div>
                   </div>
 
