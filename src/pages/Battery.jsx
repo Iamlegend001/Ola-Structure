@@ -3,7 +3,7 @@ import BatteryHero from "../Components/BatterySection/BatteryHero";
 import BatteryFeatures from "../Components/BatterySection/BatteryFeatures";
 import BatteryGallary from "../Components/BatterySection/BatteryGallary";
 import BatteryTech from "../Components/BatterySection/BatteryTech";
-import { Button } from "@/components/ui/button";
+import { Button } from "../Components/ui/button";
 
 const Battery = () => {
   // Refs for scrolling

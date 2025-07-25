@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../Components/ui/button";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 

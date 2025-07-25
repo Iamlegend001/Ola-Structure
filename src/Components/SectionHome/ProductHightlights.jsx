@@ -1,9 +1,14 @@
 // components/ProductHighlights.jsx
 import React, { useState } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "../../Components/ui/card";
 import { scooterData } from "../../Constants/scooterData";
 import { motorcycleData } from "../../Constants/motorcycleData";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../Components/ui/button";
 import { Heart, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";

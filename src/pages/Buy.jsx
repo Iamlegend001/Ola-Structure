@@ -12,8 +12,8 @@ import {
 import { scooterData } from "../Constants/scooterData";
 import { motorcycleData } from "../Constants/motorcycleData";
 import ProductCard from "../Components/ProductCard";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Button } from "../Components/ui/button";
+import { Card } from "../Components/ui/card";
 
 const Buy = () => {
   const dispatch = useDispatch();

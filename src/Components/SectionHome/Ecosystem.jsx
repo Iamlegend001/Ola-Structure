@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "../../Components/ui/badge";
 import { CheckCircle, MapPin, Zap, Shield, Download } from "lucide-react";
 import { motion } from "motion/react";
 

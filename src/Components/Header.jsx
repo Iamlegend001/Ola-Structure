@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Menu, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
+} from "./ui/sheet";
+import { Badge } from "./ui/badge";
 
 const navLinks = [
   { name: "Home", path: "/" },
