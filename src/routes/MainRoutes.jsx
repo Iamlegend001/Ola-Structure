@@ -34,25 +34,11 @@ const MainRoutes = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="battery" element={<Battery />} />
-        <Route
-          path="buy"
-          element={
-            <ProtectedRoute>
-              <Buy />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="buy" element={<Buy />} />
         <Route path="careers" element={<Careers />} />
         <Route path="charging" element={<Charging />} />
         <Route path="contact" element={<Contact />} />
-        <Route
-          path="factory"
-          element={
-            <ProtectedRoute>
-              <Factory />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="factory" element={<Factory />} />
         <Route path="legal" element={<Legal />} />
         <Route path="press" element={<Press />} />
         <Route path="scooter" element={<Scooter />} />
