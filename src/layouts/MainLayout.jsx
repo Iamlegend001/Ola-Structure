@@ -5,10 +5,14 @@ import Footer from "../Components/Footer";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSelector } from "react-redux";
+import Loader from "../Components/Loader";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MainLayout = () => {
+  const isLoading = useSelector((state) => state.ui.isLoading);
+
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
@@ -50,6 +54,7 @@ const MainLayout = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <Header />
       <main className="min-h-screen">
         <Outlet />
