@@ -56,7 +56,7 @@ const MainLayout = () => {
     <>
       {isLoading && <Loader />}
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen overflow-hidden">
         <Outlet />
       </main>
       <Footer />
