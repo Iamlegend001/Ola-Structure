@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { motion } from "motion/react";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -154,21 +155,41 @@ const Hero = () => {
               />
 
               {/* Text Overlay with Better Contrast */}
-              <div className="absolute inset-0 flex items-center justify-center text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute inset-0 flex items-center justify-center text-center"
+              >
                 <div className="max-w-4xl px-6 z-10">
                   <div className="bg-black/40 rounded-2xl p-8 md:p-12">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl">
+                    <motion.h1
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl"
+                    >
                       {slide.title}
-                    </h1>
-                    <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/95 drop-shadow-lg">
+                    </motion.h1>
+                    <motion.p
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                      className="text-lg md:text-xl lg:text-2xl mb-8 text-white/95 drop-shadow-lg"
+                    >
                       {slide.subtitle}
-                    </p>
-                    <button className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                    </motion.p>
+                    <motion.button
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.8 }}
+                      className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                    >
                       {slide.buttonText}
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>

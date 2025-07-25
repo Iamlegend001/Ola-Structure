@@ -16,6 +16,12 @@ const navLinks = [
   { name: "Motorcycles", path: "/motorcycles" },
   { name: "Battery", path: "/battery" },
   { name: "Charging", path: "/charging" },
+  { name: "Factory", path: "/factory" },
+  { name: "Sustainability", path: "/sustainability" },
+  { name: "Press", path: "/press" },
+  { name: "Careers", path: "/careers" },
+  { name: "Contact", path: "/contact" },
+  { name: "Legal", path: "/legal" },
   { name: "Buy", path: "/buy" },
 ];
 
@@ -34,8 +40,10 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b bg-black transition-all duration-300 ${
-        scrolled ? "shadow-md" : "shadow-sm"
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+        scrolled
+          ? "bg-black/60 backdrop-blur-md shadow-md"
+          : "bg-black shadow-sm"
       }`}
     >
       <div className="relative flex h-16 items-center px-4 md:px-6">
@@ -51,26 +59,28 @@ const Header = () => {
 
         {/* Centered Nav (desktop only) */}
         <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-6">
-          {navLinks.slice(0, -1).map((link) => (
-            <Button
-              key={link.name}
-              variant={currentPath === link.path ? "default" : "ghost"}
-              size="sm"
-              asChild
-              className={`relative transition-all duration-200 ${
-                currentPath === link.path
-                  ? "bg-white text-black shadow-sm"
-                  : "text-white hover:bg-gray-800 hover:text-white"
-              }`}
-            >
-              <a href={link.path} className="flex items-center space-x-1">
-                <span>{link.name}</span>
-                {currentPath === link.path && (
-                  <div className="absolute -bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 bg-white rounded-full" />
-                )}
-              </a>
-            </Button>
-          ))}
+          {navLinks
+            .filter((link) => link.name !== "Buy")
+            .map((link) => (
+              <Button
+                key={link.name}
+                variant={currentPath === link.path ? "default" : "ghost"}
+                size="sm"
+                asChild
+                className={`relative transition-all duration-200 ${
+                  currentPath === link.path
+                    ? "bg-white text-black shadow-sm"
+                    : "text-white hover:bg-gray-800 hover:text-white"
+                }`}
+              >
+                <a href={link.path} className="flex items-center space-x-1">
+                  <span>{link.name}</span>
+                  {currentPath === link.path && (
+                    <div className="absolute -bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 bg-white rounded-full" />
+                  )}
+                </a>
+              </Button>
+            ))}
         </nav>
 
         {/* CTA (right) */}
@@ -95,7 +105,10 @@ const Header = () => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-80 sm:w-96 bg-black text-white">
+          <SheetContent
+            side="right"
+            className="w-80 sm:w-96 bg-black text-white"
+          >
             <SheetHeader>
               <SheetTitle className="flex items-center space-x-2">
                 <img
@@ -108,25 +121,30 @@ const Header = () => {
             </SheetHeader>
 
             <div className="flex flex-col space-y-4 mt-8">
-              {navLinks.slice(0, -1).map((link, index) => (
-                <a
-                  key={link.name}
-                  href={link.path}
-                  className={`flex items-center space-x-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-                    currentPath === link.path
-                      ? "bg-white text-black"
-                      : "hover:bg-gray-800 hover:text-white"
-                  }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span>{link.name}</span>
-                  {currentPath === link.path && (
-                    <Badge variant="default" className="ml-auto text-xs bg-black text-white">
-                      Current
-                    </Badge>
-                  )}
-                </a>
-              ))}
+              {navLinks
+                .filter((link) => link.name !== "Buy")
+                .map((link, index) => (
+                  <a
+                    key={link.name}
+                    href={link.path}
+                    className={`flex items-center space-x-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                      currentPath === link.path
+                        ? "bg-white text-black"
+                        : "hover:bg-gray-800 hover:text-white"
+                    }`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <span>{link.name}</span>
+                    {currentPath === link.path && (
+                      <Badge
+                        variant="default"
+                        className="ml-auto text-xs bg-black text-white"
+                      >
+                        Current
+                      </Badge>
+                    )}
+                  </a>
+                ))}
 
               <div className="pt-4 mt-4 border-t border-gray-700">
                 <Button
