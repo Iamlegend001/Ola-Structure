@@ -6,6 +6,7 @@ import {
   Cpu,
   BatteryCharging,
 } from "lucide-react";
+import { motion } from "motion/react";
 
 const techFeatures = [
   {
@@ -44,7 +45,13 @@ const batteryImg =
 
 const BatteryAndTechnology = () => {
   return (
-    <section className="relative py-28 px-4 md:px-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      className="relative py-28 px-4 md:px-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden"
+    >
       {/* SVG Wave */}
       <svg
         className="absolute top-0 left-0 w-full h-32 z-0"
@@ -62,7 +69,13 @@ const BatteryAndTechnology = () => {
       </div>
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* Image Section */}
-        <div className="flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="flex flex-col items-center justify-center"
+        >
           <div className="relative w-full max-w-2xl flex items-center justify-center">
             {/* Decorative SVG Ring */}
             <svg
@@ -113,9 +126,14 @@ const BatteryAndTechnology = () => {
               }
             `}</style>
           </div>
-        </div>
+        </motion.div>
         {/* Text Section */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-xl">
             Battery & Technology
           </h2>
@@ -125,10 +143,23 @@ const BatteryAndTechnology = () => {
             system—designed in-house, rigorously tested, and built for
             endurance, safety, and intelligence.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.12 } },
+              hidden: {},
+            }}
+          >
             {techFeatures.map((tech, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                }}
                 className={`relative bg-white/60 backdrop-blur-md border-2 border-transparent hover:border-blue-400 shadow-lg rounded-xl p-6 flex flex-col items-start animate-fadein-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -145,10 +176,10 @@ const BatteryAndTechnology = () => {
                 <p className="text-gray-500 text-sm font-medium">
                   {tech.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
       {/* Fade-in, pulse, and spin animation keyframes */}
       <style>{`
@@ -177,7 +208,7 @@ const BatteryAndTechnology = () => {
           100% { transform: rotate(360deg); }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 };
 

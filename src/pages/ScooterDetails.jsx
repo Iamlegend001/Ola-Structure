@@ -14,6 +14,7 @@ import {
   Play,
 } from "lucide-react";
 import { scooterData } from "../Constants/scooterData";
+import { motion } from "motion/react";
 
 const colorVariants = {
   "Crimson Red": "#dc2626",
@@ -51,7 +52,12 @@ const ScooterDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen bg-white"
+    >
       {/* Fixed Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
@@ -66,7 +72,12 @@ const ScooterDetails = () => {
       </nav>
 
       {/* Hero Banner Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <img
@@ -76,18 +87,33 @@ const ScooterDetails = () => {
         />
 
         <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-tight"
+          >
             {scooter.name}
-          </h1>
+          </motion.h1>
           {scooter.tagline && (
-            <p className="text-xl sm:text-2xl md:text-3xl font-light mb-6 sm:mb-8 opacity-90 max-w-4xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-xl sm:text-2xl md:text-3xl font-light mb-6 sm:mb-8 opacity-90 max-w-4xl mx-auto"
+            >
               {scooter.tagline}
-            </p>
+            </motion.p>
           )}
 
           {/* Rating Display */}
           {scooter.rating && (
-            <div className="flex items-center justify-center gap-6 mb-6 sm:mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex items-center justify-center gap-6 mb-6 sm:mb-8"
+            >
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -103,11 +129,16 @@ const ScooterDetails = () => {
                   {scooter.rating} ({scooter.reviews} reviews)
                 </span>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
+          >
             <button className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo
@@ -115,16 +146,22 @@ const ScooterDetails = () => {
             <button className="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white hover:text-black transition-colors">
               Configure Now
             </button>
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white">
           <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 animate-bounce" />
         </div>
-      </section>
+      </motion.section>
 
       {/* Quick Specs Bar */}
-      <section className="bg-gray-900 text-white py-6 sm:py-8">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="bg-gray-900 text-white py-6 sm:py-8"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             <div className="p-2">
@@ -161,13 +198,25 @@ const ScooterDetails = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16"
+      >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-12 sm:mb-16">
           {/* Product Image & Colors */}
-          <div className="space-y-6 sm:space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="space-y-6 sm:space-y-8"
+          >
             <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex items-center justify-center min-h-[300px] sm:min-h-[400px]">
               <img
                 src={scooter.image}
@@ -201,10 +250,16 @@ const ScooterDetails = () => {
                 </p>
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Product Info */}
-          <div className="space-y-6 sm:space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="space-y-6 sm:space-y-8"
+          >
             <div>
               <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-tight">
                 {scooter.name}
@@ -250,18 +305,39 @@ const ScooterDetails = () => {
                 Buy Now
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Detailed Specifications */}
-        <div className="mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+        <motion.div
+          className="mb-12 sm:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.12 } },
+            hidden: {},
+          }}
+        >
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+            }}
+            className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8"
+          >
             Technical Specifications
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Performance Specs */}
-            <div className="bg-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
+              className="bg-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6"
+            >
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="bg-blue-600 p-2 sm:p-3 rounded-lg">
                   <Gauge className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
@@ -304,10 +380,16 @@ const ScooterDetails = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Battery Specs */}
-            <div className="bg-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
+              className="bg-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6"
+            >
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="bg-green-600 p-2 sm:p-3 rounded-lg">
                   <Battery className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
@@ -350,10 +432,16 @@ const ScooterDetails = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Dimensions */}
-            <div className="bg-purple-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:col-span-2 lg:col-span-1">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
+              className="bg-purple-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:col-span-2 lg:col-span-1"
+            >
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <div className="bg-purple-600 p-2 sm:p-3 rounded-lg">
                   <Wrench className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
@@ -398,21 +486,44 @@ const ScooterDetails = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Features Section */}
         {scooter.features && (
-          <div className="mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+          <motion.div
+            className="mb-12 sm:mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.12 } },
+              hidden: {},
+            }}
+          >
+            <motion.h2
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
+              className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8"
+            >
               Key Features
-            </h2>
+            </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {scooter.features.map((category, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 40 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.7 },
+                    },
+                  }}
                   className="bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -428,15 +539,21 @@ const ScooterDetails = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Battery Deep Dive */}
         {scooter.battery && (
-          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-12 sm:mb-16">
+          <motion.div
+            className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Advanced Battery Technology
@@ -512,11 +629,17 @@ const ScooterDetails = () => {
                 </div>
               </div>
             )}
-          </div>
+          </motion.div>
         )}
 
         {/* CTA Section */}
-        <div className="bg-gray-900 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="bg-gray-900 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center text-white"
+        >
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
             Ready to Experience the Future?
           </h2>
@@ -531,9 +654,9 @@ const ScooterDetails = () => {
               Get Financing Options
             </button>
           </div>
-        </div>
-      </section>
-    </div>
+        </motion.div>
+      </motion.section>
+    </motion.div>
   );
 };
 

@@ -2,7 +2,7 @@ export const motorcycleData = [
   {
     id: "m1",
     name: "Ola Roadster X",
-    video:"https://cdn.olaelectric.com/sites/evdp/pages/roadster-x/blue_theme/videos/mrx_banner_web_video_v2.mp4",
+    image:"https://cdn.olaelectric.com/sites/evdp/pages/bike/mrx_plus_compare_web_image_v2.webp",
     specs: {
       range: "220 km",
       topSpeed: "135 km/h",
@@ -21,7 +21,7 @@ export const motorcycleData = [
   {
     id: "m2",
     name: "Ola Cruiser",
-   video:"https://cdn.olaelectric.com/sites/evdp/pages/roadster-x/blue_theme/videos/mrx_banner_web_video_v2.mp4",
+   image:"https://cdn.olaelectric.com/sites/evdp/pages/bike/mrx_plus_compare_web_image_v2.webp",
     specs: {
       range: "180 km",
       topSpeed: "120 km/h",
@@ -40,7 +40,7 @@ export const motorcycleData = [
   {
     id: "m3",
     name: "Ola Adventure",
-    video:"https://cdn.olaelectric.com/sites/evdp/pages/roadster-x/blue_theme/videos/mrx_banner_web_video_v2.mp4",
+    image:"https://cdn.olaelectric.com/sites/evdp/pages/bike/mrx_plus_compare_web_image_v2.webp",
     specs: {
       range: "200 km",
       topSpeed: "125 km/h",

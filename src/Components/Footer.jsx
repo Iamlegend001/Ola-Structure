@@ -24,11 +24,27 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { name: "Instagram", icon: Instagram, url: "#" },
-  { name: "YouTube", icon: Youtube, url: "#" },
-  { name: "Twitter", icon: Twitter, url: "#" },
-  { name: "Facebook", icon: Facebook, url: "#" },
-  { name: "LinkedIn", icon: Linkedin, url: "#" },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://www.instagram.com/olacabs/?hl=en",
+  },
+  {
+    name: "YouTube",
+    icon: Youtube,
+    url: "https://www.youtube.com/user/OfficialOlacabs",
+  },
+  { name: "Twitter", icon: Twitter, url: "https://x.com/Olacabs/with_replies" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    url: "https://www.facebook.com/Olacabs/",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/company/olacabs-com/?originalSubdomain=in",
+  },
 ];
 
 const Footer = () => {

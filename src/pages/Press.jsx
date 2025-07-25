@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 
 const pressNews = [
   {
@@ -43,9 +44,20 @@ const mediaMentions = [
 
 const Press = () => {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen bg-white text-black"
+    >
       {/* Hero Section */}
-      <section className="w-full bg-black text-white py-16 px-4 text-center">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="w-full bg-black text-white py-16 px-4 text-center"
+      >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Ola Electric in the News
         </h1>
@@ -53,16 +65,34 @@ const Press = () => {
           Stay up to date with the latest news, announcements, and media
           coverage about Ola Electric.
         </p>
-      </section>
-
+      </motion.section>
       {/* Latest News */}
-      <section className="max-w-4xl mx-auto py-12 px-4">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="max-w-4xl mx-auto py-12 px-4"
+      >
         <h2 className="text-2xl font-semibold mb-6">Latest News</h2>
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.12 } },
+            hidden: {},
+          }}
+        >
           {pressNews.map((news, idx) => (
-            <a
+            <motion.a
               key={idx}
               href={news.link}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
               className="block border rounded-lg p-6 hover:shadow-lg transition-shadow bg-gray-50"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -74,30 +104,53 @@ const Press = () => {
                   {news.date}
                 </span>
               </div>
-            </a>
+            </motion.a>
           ))}
-        </div>
-      </section>
-
+        </motion.div>
+      </motion.section>
       {/* Media Mentions */}
-      <section className="max-w-4xl mx-auto py-12 px-4">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="max-w-4xl mx-auto py-12 px-4"
+      >
         <h2 className="text-2xl font-semibold mb-6">Media Mentions</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.12 } },
+            hidden: {},
+          }}
+        >
           {mediaMentions.map((mention, idx) => (
-            <a
+            <motion.a
               key={idx}
               href={mention.link}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
               className="block border rounded-lg p-6 bg-gray-50 hover:shadow-lg transition-shadow"
             >
               <div className="mb-2 text-lg font-bold">{mention.outlet}</div>
               <div className="text-gray-700 italic">"{mention.quote}"</div>
-            </a>
+            </motion.a>
           ))}
-        </div>
-      </section>
-
+        </motion.div>
+      </motion.section>
       {/* Press Contact */}
-      <section className="max-w-4xl mx-auto py-12 px-4">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+        className="max-w-4xl mx-auto py-12 px-4"
+      >
         <h2 className="text-2xl font-semibold mb-4">Press Contact</h2>
         <div className="bg-gray-100 rounded-lg p-6">
           <p className="mb-2">For press inquiries, please contact:</p>
@@ -108,8 +161,8 @@ const Press = () => {
             press@olaelectric.com
           </a>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 

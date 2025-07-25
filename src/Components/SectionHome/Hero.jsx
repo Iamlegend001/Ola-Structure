@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const swiperRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -15,6 +17,7 @@ const Hero = () => {
       title: "Revolutionary Electric Mobility",
       subtitle: "Experience the future of transportation",
       buttonText: "Explore Now",
+      link: "/scooter",
     },
     {
       image:
@@ -22,6 +25,7 @@ const Hero = () => {
       title: "Smart Electric Scooters",
       subtitle: "Ride into tomorrow with cutting-edge technology",
       buttonText: "View Models",
+      link: "/scooter",
     },
     {
       image:
@@ -29,6 +33,7 @@ const Hero = () => {
       title: "Roadster X Series",
       subtitle: "Power meets performance in electric excellence",
       buttonText: "Discover Roadster",
+      link: "/motorcycles",
     },
     {
       image:
@@ -36,6 +41,7 @@ const Hero = () => {
       title: "Generation 3 Innovation",
       subtitle: "Next-level electric vehicle technology",
       buttonText: "Learn More",
+      link: "/battery",
     },
     {
       image:
@@ -43,6 +49,7 @@ const Hero = () => {
       title: "Enhanced Gen3 Experience",
       subtitle: "Advanced features for the modern rider",
       buttonText: "Get Started",
+      link: "/buy",
     },
     {
       image:
@@ -50,6 +57,7 @@ const Hero = () => {
       title: "Gig Economy Solutions",
       subtitle: "Empowering delivery partners with electric mobility",
       buttonText: "Join Gig",
+      link: "/careers",
     },
     {
       image:
@@ -57,6 +65,7 @@ const Hero = () => {
       title: "HyperServices Network",
       subtitle: "Comprehensive electric vehicle ecosystem",
       buttonText: "Explore Services",
+      link: "/contact",
     },
   ];
 
@@ -184,6 +193,7 @@ const Hero = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.8 }}
                       className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                      onClick={() => navigate(slide.link)}
                     >
                       {slide.buttonText}
                     </motion.button>

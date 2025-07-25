@@ -1,16 +1,35 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 const FinalCTA = () => {
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      className="relative py-24 px-6 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] overflow-hidden"
+    >
       {/* Decorative Animated Icon */}
-      <div className="absolute left-1/2 top-10 -translate-x-1/2 z-10">
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="absolute left-1/2 top-10 -translate-x-1/2 z-10"
+      >
         <Sparkles className="w-16 h-16 text-yellow-300 animate-bounce-slow drop-shadow-xl" />
-      </div>
+      </motion.div>
       {/* Glassmorphism Card */}
-      <div className="max-w-3xl mx-auto text-center relative z-20 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl px-8 py-14 border border-white/20">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="max-w-3xl mx-auto text-center relative z-20 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl px-8 py-14 border border-white/20"
+      >
         <h2 className="text-4xl font-extrabold mb-4 text-white tracking-tight drop-shadow-lg">
           Your Electric Journey Starts Here
         </h2>
@@ -36,7 +55,7 @@ const FinalCTA = () => {
             Explore Scooters
           </Button>
         </div>
-      </div>
+      </motion.div>
       {/* Subtle overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-0" />
       <style>{`
@@ -48,7 +67,7 @@ const FinalCTA = () => {
           50% { transform: translateY(-18px); }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 };
 

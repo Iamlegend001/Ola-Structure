@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 
 const jobs = [
   {
@@ -25,9 +26,20 @@ const jobs = [
 
 const Careers = () => {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen bg-white text-black"
+    >
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-r from-yellow-400 to-pink-500 text-white py-16 px-4 text-center">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="w-full bg-gradient-to-r from-yellow-400 to-pink-500 text-white py-16 px-4 text-center"
+      >
         <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
           Careers at Ola Electric
         </h1>
@@ -35,17 +47,35 @@ const Careers = () => {
           Join us in building the future of mobility. We’re looking for
           passionate innovators to help us drive change.
         </p>
-      </section>
-
+      </motion.section>
       {/* Open Positions */}
-      <section className="max-w-4xl mx-auto py-16 px-4">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="max-w-4xl mx-auto py-16 px-4"
+      >
         <h2 className="text-2xl font-semibold mb-8 text-center">
           Open Positions
         </h2>
-        <div className="space-y-8">
+        <motion.div
+          className="space-y-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.12 } },
+            hidden: {},
+          }}
+        >
           {jobs.map((job, idx) => (
-            <div
+            <motion.div
               key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+              }}
               className="bg-gray-50 rounded-xl shadow-md p-8 flex flex-col md:flex-row md:items-center md:justify-between hover:shadow-xl transition-shadow"
             >
               <div>
@@ -61,13 +91,18 @@ const Careers = () => {
               >
                 Apply
               </a>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </section>
-
+        </motion.div>
+      </motion.section>
       {/* Call to Action */}
-      <section className="w-full bg-black text-white py-12 px-4 text-center">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="w-full bg-black text-white py-12 px-4 text-center"
+      >
         <h2 className="text-2xl md:text-3xl font-semibold mb-4">
           Don’t see a role that fits?
         </h2>
@@ -81,8 +116,8 @@ const Careers = () => {
           </a>
           .
         </p>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 

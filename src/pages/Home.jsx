@@ -1,52 +1,125 @@
-import React from 'react'
-import Hero from '../Components/SectionHome/Hero'
-
-import FeatureSection from '../Components/SectionHome/FeatureSection'
-import BatteryAndTechnology from '../Components/SectionHome/BatteryAndTechnology'
-import Experience from '../Components/SectionHome/Experience'
-import AppSupport from '../Components/SectionHome/AppSupport'
-import Ecosystem from '../Components/SectionHome/Ecosystem'
-import FinalCTA from '../Components/SectionHome/FinalCTA'
-import ProductHighlights from '../Components/SectionHome/ProductHightlights'
+import React from "react";
+import Hero from "../Components/SectionHome/Hero";
+import FeatureSection from "../Components/SectionHome/FeatureSection";
+import BatteryAndTechnology from "../Components/SectionHome/BatteryAndTechnology";
+import Experience from "../Components/SectionHome/Experience";
+import AppSupport from "../Components/SectionHome/AppSupport";
+import Ecosystem from "../Components/SectionHome/Ecosystem";
+import FinalCTA from "../Components/SectionHome/FinalCTA";
+import ProductHighlights from "../Components/SectionHome/ProductHightlights";
+import { motion } from "motion/react";
 
 const Home = () => {
   return (
-    <main className="w-full bg-background text-foreground">
-      <div>
-        <section>
+    <motion.main
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="w-full bg-background text-foreground"
+    >
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: { transition: { staggerChildren: 0.15 } },
+          hidden: {},
+        }}
+      >
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+          }}
+        >
           <Hero />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.1 },
+            },
+          }}
+        >
           <ProductHighlights />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.2 },
+            },
+          }}
+        >
           <FeatureSection />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.3 },
+            },
+          }}
+        >
           <BatteryAndTechnology />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.4 },
+            },
+          }}
+        >
           <Experience />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.5 },
+            },
+          }}
+        >
           <AppSupport />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.6 },
+            },
+          }}
+        >
           <Ecosystem />
-        </section>
-
-        <section>
+        </motion.section>
+        <motion.section
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.7 },
+            },
+          }}
+        >
           <FinalCTA />
-        </section>
-      </div>
-    </main>
-  )
-}
+        </motion.section>
+      </motion.div>
+    </motion.main>
+  );
+};
 
-export default Home
+export default Home;
